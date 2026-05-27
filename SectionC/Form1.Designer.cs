@@ -38,12 +38,13 @@
             btnAdd = new Button();
             btnDelete = new Button();
             btnFind = new Button();
+            tblMobilePhones = new ListBox();
             SuspendLayout();
             // 
             // lblOutput
             // 
             lblOutput.AutoSize = true;
-            lblOutput.Location = new Point(14, 25);
+            lblOutput.Location = new Point(168, 18);
             lblOutput.Margin = new Padding(4, 0, 4, 0);
             lblOutput.Name = "lblOutput";
             lblOutput.Size = new Size(0, 28);
@@ -105,6 +106,7 @@
             btnAdd.TabIndex = 7;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
@@ -124,11 +126,20 @@
             btnFind.Text = "Find";
             btnFind.UseVisualStyleBackColor = true;
             // 
+            // tblMobilePhones
+            // 
+            tblMobilePhones.FormattingEnabled = true;
+            tblMobilePhones.Location = new Point(42, 379);
+            tblMobilePhones.Name = "tblMobilePhones";
+            tblMobilePhones.Size = new Size(524, 200);
+            tblMobilePhones.TabIndex = 10;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(608, 405);
+            ClientSize = new Size(605, 610);
+            Controls.Add(tblMobilePhones);
             Controls.Add(btnFind);
             Controls.Add(btnDelete);
             Controls.Add(btnAdd);
@@ -140,7 +151,7 @@
             Controls.Add(txtCode);
             Controls.Add(lblOutput);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -159,5 +170,6 @@
         private Button btnAdd;
         private Button btnDelete;
         private Button btnFind;
+        private ListBox tblMobilePhones;
     }
 }
