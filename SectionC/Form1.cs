@@ -23,6 +23,22 @@ namespace SectionC
                 return;
             }
 
+            // Ensure quantity is a valid number
+            if (!int.TryParse(Quantity, out int quantityValue) || quantityValue < 0)
+            {
+                MessageBox.Show("Please enter a valid non-negative number for quantity.");
+                return;
+            }
+
+            // Ensure no duplicates can be made
+            var phone = tblMobilePhones.Items.Cast<string>().FirstOrDefault(item => item.Contains(mobileCode));
+
+            if (phone != null)
+            {
+                MessageBox.Show("A mobile phone with this code already exists.");
+                return;
+            }
+
             // Add mobile phone to list
             tblMobilePhones.Items.Add($"{mobileCode} - {make} - {Quantity}");
 
