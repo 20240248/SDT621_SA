@@ -1,3 +1,5 @@
+using static System.Net.Mime.MediaTypeNames;
+
 namespace SectionC
 {
     public partial class Form1 : Form
@@ -43,8 +45,35 @@ namespace SectionC
 
             if (itemToDelete != null)
             {
+                // Remove item
                 tblMobilePhones.Items.Remove(itemToDelete);
                 lblOutput.Text = "Record Found";
+            }
+            else
+            {
+                lblOutput.Text = "Record NOT Found";
+            }
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            // Question does not specify what to do if record is found, just says to display "Record Deleted"
+
+            string mobileCode = txtCode.Text;
+
+            if (String.IsNullOrEmpty(mobileCode))
+            {
+                MessageBox.Show("Please enter a mobile code to find.");
+                return;
+            }
+
+            // Find item
+            var itemToFind = tblMobilePhones.Items.Cast<string>().FirstOrDefault(item => item.Contains(mobileCode));
+
+            // Output
+            if (itemToFind != null)
+            {
+                lblOutput.Text = "Record Deleted";
             }
             else
             {

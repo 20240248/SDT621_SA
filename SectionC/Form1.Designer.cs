@@ -126,6 +126,7 @@
             btnFind.TabIndex = 9;
             btnFind.Text = "Find";
             btnFind.UseVisualStyleBackColor = true;
+            btnFind.Click += btnFind_Click;
             // 
             // tblMobilePhones
             // 
