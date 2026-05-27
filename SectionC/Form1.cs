@@ -9,10 +9,12 @@ namespace SectionC
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // Get input values
             string mobileCode = txtCode.Text;
             string make = txtMake.Text;
             string Quantity = txtQuantity.Text;
 
+            // Validate input
             if (String.IsNullOrEmpty(mobileCode) || String.IsNullOrEmpty(make) || String.IsNullOrEmpty(Quantity))
             {
                 MessageBox.Show("Please fill in all fields.");
