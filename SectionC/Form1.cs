@@ -26,5 +26,30 @@ namespace SectionC
 
             lblOutput.Text = $"Record added";
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // Get input
+            string mobileCode = txtCode.Text;
+
+            if (string.IsNullOrEmpty(mobileCode))
+            {
+                MessageBox.Show("Please enter a mobile code to delete.");
+                return;
+            }
+
+            // Find item to delete
+            var itemToDelete = tblMobilePhones.Items.Cast<string>().FirstOrDefault(item => item.Contains(mobileCode));
+
+            if (itemToDelete != null)
+            {
+                tblMobilePhones.Items.Remove(itemToDelete);
+                lblOutput.Text = "Record Found";
+            }
+            else
+            {
+                lblOutput.Text = "Record NOT Found";
+            }
+        }
     }
 }
